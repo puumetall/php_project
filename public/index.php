@@ -1,42 +1,22 @@
 <?php
 
+class Person {
+    public static $id;
+    public $name;
 
-class Worker {
-    private $logger;
-    public function __construct(Logger $logger) {
-        $this->logger = $logger;
-    }
-    public function work(){
-        for($i=0; $i<10; $i++){
-            $this->logger->log($i);
-        }
+    public static function getId(){
+        echo $this->name;
+        return self::$id;
     }
 }
 
-interface Logger {
-    public function log($message);
-}
+$person1 = new Person();
+$person1->name = 'Kati';
+Person::$id = 1;
 
+$person2 = new Person();
+$person2->name = 'Mati';
+Person::$id = 2;
 
-class ConsoleLogger implements Logger {
-    public function log($message){
-        echo $message . "\n";
-    }
-}
-
-// fixed code ends
-
-class FileLogger implements Logger{
-    public function log($message){
-        $file = fopen('log.txt', 'a');
-        fwrite($file, $message . "\n");
-        fclose($file);
-    }
-}
-
-class ShitLogger implements Logger {
-
-}
-
-$worker = new Worker(new ShitLogger());
-$worker->work();
+var_dump(Person::getId());
+var_dump($person2::$id);
