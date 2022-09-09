@@ -1,9 +1,5 @@
-<?php
-$json = file_get_contents('posts.json');
-$posts = json_decode($json, true);
-?>
 <?php include(__DIR__ .'/partials/header.php'); ?>
-        <a class="button is-primary" href="/new.php">New Post</a>
+        <a class="button is-primary" href="/new">New Post</a>
             <?php foreach($posts as $post): ?>
                 <div class="card">
                     <header class="card-header">
