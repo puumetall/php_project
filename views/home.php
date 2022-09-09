@@ -2,7 +2,7 @@
 $json = file_get_contents('posts.json');
 $posts = json_decode($json, true);
 ?>
-<?php include('partials/header.php'); ?>
+<?php include(__DIR__ .'/partials/header.php'); ?>
         <a class="button is-primary" href="/new.php">New Post</a>
             <?php foreach($posts as $post): ?>
                 <div class="card">
@@ -21,4 +21,4 @@ $posts = json_decode($json, true);
                     </footer>
                 </div>
             <?php endforeach; ?>
-<?php include('partials/footer.php'); ?>
+<?php include(__DIR__ .'/partials/footer.php'); ?>

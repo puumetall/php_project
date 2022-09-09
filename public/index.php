@@ -1,22 +1,23 @@
 <?php
 
-class Person {
-    public static $id;
-    public $name;
+spl_autoload_register(function($className){
+    $className = substr($className, strlen('App\\'));
+    require_once(__DIR__ . "/../src/$className.php");
+});
 
-    public static function getId(){
-        echo $this->name;
-        return self::$id;
-    }
+//var_dump($_SERVER);
+
+switch($_SERVER['REQUEST_URI']) {
+    case '/':
+        include(__DIR__ . '/../views/home.php');
+        break;
+    case '/add':
+        echo "add";
+        break;
+    case '/new':
+        include(__DIR__ . '/../views/new.php');
+        break;
+    default:
+        echo "404";
+        break;
 }
-
-$person1 = new Person();
-$person1->name = 'Kati';
-Person::$id = 1;
-
-$person2 = new Person();
-$person2->name = 'Mati';
-Person::$id = 2;
-
-var_dump(Person::getId());
-var_dump($person2::$id);
