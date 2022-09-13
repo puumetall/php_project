@@ -4,12 +4,12 @@
                 <div class="card">
                     <header class="card-header">
                         <p class="card-header-title">
-                            <?=$post['title']?>
+                            <?=$post->title?>
                         </p>
                     </header>
                     <div class="card-content">
                         <div class="content">
-                            <?=$post['body']?>
+                            <?=$post->snippet()?>
                         </div>
                     </div>
                     <footer class="card-footer">
