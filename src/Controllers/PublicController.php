@@ -2,11 +2,17 @@
 
 namespace App\Controllers;
 
+
+
+
+
+use App\Models\Post;
+
 class PublicController {
 
     public function index(){
-        $db = new \App\DB;
-        $posts = $db->all('posts');
+
+        $posts = Post::all();
         view('home', compact('posts'));
     }
 }

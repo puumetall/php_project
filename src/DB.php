@@ -14,10 +14,10 @@ class DB {
         }
     }
 
-    public function all($table){
+    public function all($table, $class=\stdClass::class){
         $stmt = $this->conn->prepare('SELECT * FROM ' . $table . ';');
         $stmt->execute();
-        $stmt->setFetchMode(\PDO::FETCH_CLASS, \App\Models\Post::class);
+        $stmt->setFetchMode(\PDO::FETCH_CLASS, $class);
         return $stmt->fetchAll();
     }
 }
