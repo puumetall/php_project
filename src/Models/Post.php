@@ -2,7 +2,11 @@
 
 namespace App\Models;
 
-class Post {
+use App\DB;
+
+class Post extends Model {
+    public static $table = 'posts';
+
     public $id;
     public $title;
     public $body;
@@ -11,8 +15,4 @@ class Post {
         return substr($this->body, 0, 50);
     }
 
-    public static function all(){
-        $db = new \App\DB;
-        return $db->all('posts', Post::class);
-    }
 }
