@@ -41,6 +41,14 @@ class DB {
         return $stmt->fetch();
     }
 
+    public function where($field, $value, $table, $class=\stdClass::class){
+        $stmt = $this->conn->prepare('SELECT * FROM ' . $table . ' WHERE $field='. $value .';');
+        $stmt->execute();
+        $stmt->setFetchMode(\PDO::FETCH_CLASS, $class);
+        return $stmt->fetch();
+    }
+
+
     public function update($id, $table, $fields){
         $updateKeyValue = [];
         foreach ($fields as $key=>$value){

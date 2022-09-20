@@ -12,4 +12,11 @@ class User extends Model
     public $email;
     public $password;
 
+    public static function auth(){
+        if($_SESSION['user_id']){
+            return self::find($_SESSION['user_id']);
+        }
+        return null;
+    }
+
 }

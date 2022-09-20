@@ -38,4 +38,9 @@ class Model
         $db = new DB();
         $db->delete($this->id, static::$table);
     }
+
+    public static function where($field, $value){
+        $db = new DB();
+        return $db->where($field, $value, static::$table, static::class);
+    }
 }
