@@ -1,0 +1,12 @@
+{
+    "name": "mm-20-337/mm20learnphp",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "require": {
+        "symfony/var-dumper": "^6.1"
+    }
+}

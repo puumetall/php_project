@@ -10,8 +10,7 @@ class PublicController {
     public function index(){
 
         $posts = Post::all();
-//        $users = User::all();
-//        var_dump($users);
+        dump($posts);
         view('home', compact('posts'));
     }
 
