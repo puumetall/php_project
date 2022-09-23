@@ -23,6 +23,7 @@ class AuthController
             $user->password = $_POST['password'];
             $user->save();
         }
+        header('Location: /login');
     }
 
     public function login(){
@@ -30,5 +31,6 @@ class AuthController
          if($user && $user->password == $_POST['password']){
             $_SESSION['user_id'] = $user->id;
          }
+        header('Location: /');
     }
 }
